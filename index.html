@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteldas Private Technology Brief for Thomson Reuters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Include Tailwind CSS for modern responsive layout utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include qrcode.js library for dynamic QR code generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            color: #172b4d;
+        }
+
+        .container-main {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container-main {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Top Header Section */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 36px;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .left-brief {
+            width: 38%;
+            min-width: 300px;
+        }
+
+        @media(max-width: 992px) {
+            .left-brief { width: 100%; }
+            .right-headline { width: 100% !important; text-align: left !important; }
+        }
+
+        .left-brief .tag {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #253858;
+            line-height: 1.4;
+        }
+
+        .left-brief .highlight-blue {
+            color: #008da8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-size: 1.35vw;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        @media(max-width: 992px) {
+            .left-brief .highlight-blue { font-size: 4.5vw; }
+        }
+
+        .left-brief .bold-black {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.3px;
+            font-size: 1.75vw;
+            color: #000000;
+            line-height: 1.15;
+        }
+        @media(max-width: 992px) {
+            .left-brief .bold-black { font-size: 5.5vw; }
+        }
+
+        .right-headline {
+            width: 58%;
+            text-align: right;
+            min-width: 300px;
+        }
+
+        .right-headline h2, .right-headline h1 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: 2.6vw;
+            font-weight: 400;
+            line-height: 1.1;
+            color: #172b4d;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        @media(max-width: 992px) {
+            .right-headline h2, .right-headline h1 { font-size: 5.5vw; }
+        }
+
+        .right-headline h2 {
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .right-headline .cyan-text {
+            color: #008da8;
+            font-weight: 700;
+        }
+
+        /* Middle Image Section */
+        .middle-image-container {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .middle-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Bottom Footer Text Section */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #edf2f7;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .bottom-left {
+            font-size: 1.4vw;
+            color: #091e42;
+            line-height: 1.2;
+        }
+        @media(max-width: 992px) {
+            .bottom-left { font-size: 4vw; width: 100%; }
+        }
+
+        .bottom-left .bold-title {
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        .bottom-left .cyan-title {
+            font-weight: 900;
+            color: #008da8;
+            font-size: 1.8vw;
+            margin-bottom: 16px;
+        }
+        @media(max-width: 992px) {
+            .bottom-left .cyan-title { font-size: 5vw; }
+        }
+
+        .bottom-left .sub-text {
+            font-weight: 700;
+            color: #172b4d;
+            font-size: 1.3vw;
+            margin-top: 12px;
+        }
+        @media(max-width: 992px) {
+            .bottom-left .sub-text { font-size: 3.8vw; }
+        }
+
+        .btn-cta {
+            background-color: #071523;
+            color: #ffffff;
+            border: 2px solid #008da8;
+            border-radius: 10px;
+            padding: 20px 36px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 141, 168, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: #008da8;
+            color: #071523;
+            border-color: #008da8;
+            box-shadow: 0 6px 25px rgba(0, 141, 168, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-main">
+    <div class="top-section">
+        <div class="left-brief">
+            <div class="tag">PRIVATE TECHNOLOGY BRIEF<br>FOR THOMSON REUTERS</div>
+            <div class="highlight-blue">INTELDAS DEVELOPS<br>FORENSIC INJURY EVIDENCE →</div>
+            <div class="bold-black">THE ORIGINAL MEDICAL<br>RECORD NEVER DID.</div>
+        </div>
+        <div class="right-headline">
+            <h2>YOU'RE MOVING CoCOUNSEL<br>CLOSER TO THE EVIDENCE.</h2>
+            <h1>WHAT IF THERE'S <span class="cyan-text">MORE</span><br><span class="cyan-text">EVIDENCE</span> TO GIVE IT?</h1>
+        </div>
+    </div>
+
+    <!-- Pipeline Visualization Image -->
+    <div class="middle-image-container">
+        <img src="https://assets.codepen.io/15296175/unnamed+%281%29.png" alt="Claim Intelligence & Pipeline Visualization">
+    </div>
+
+    <!-- MAIN EVIDENCE ROOM CONTAINER -->
+    <div class="max-w-7xl mx-auto space-y-12 my-16">
+
+        <!-- Evidence Room Header Section -->
+        <section class="evidence-room-header-section">
+            <style>
+                .evidence-room-header-section {
+                    width: 100%;
+                    background-color: #f8fafc;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 1.5rem;
+                    padding: 3rem 2rem;
+                    text-align: center;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-room-header-section .badge {
+                    color: #008da8;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    font-size: 0.75rem;
+                    background-color: rgba(0, 141, 168, 0.1);
+                    padding: 0.5rem 1rem;
+                    border-radius: 9999px;
+                }
+                .evidence-room-header-section h3 {
+                    font-size: clamp(2rem, 4vw, 3rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-top: 1rem;
+                }
+                .evidence-room-header-section p {
+                    color: #475569;
+                    margin-top: 0.75rem;
+                    font-size: 1.125rem;
+                    font-style: italic;
+                    font-weight: 500;
+                }
+            </style>
+            <span class="badge">Interactive Evidence Room</span>
+            <h3>INTELDAS™ EVIDENCE ROOM</h3>
+            <p>See the capability. Examine the outputs. Test the difference.</p>
+        </section>
+
+        <!-- 1. THE PROBLEM Section -->
+        <section class="evidence-problem-section">
+            <style>
+                .evidence-problem-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-problem-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .evidence-problem-section .content-body {
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+                .evidence-problem-section .highlight-text {
+                    font-weight: 600;
+                    color: #172b4d;
+                }
+                .evidence-problem-section .footer-tag {
+                    margin-top: 1.5rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid #f1f5f9;
+                    font-weight: bold;
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: #008da8;
+                }
+            </style>
+            <h4>1. THE PROBLEM</h4>
+            <div class="content-body">
+                <p>AI has a medical-record problem.</p>
+                <p>It can't reason from evidence it never received.</p>
+                <p>Legal AI has become extraordinarily capable at searching, organizing, analyzing, reasoning from and drafting with existing information.</p>
+                <p>But there is an upstream limitation:</p>
+                <p class="highlight-text">What happens when consequential medical evidence was never developed in the original record?</p>
+            </div>
+            <div class="footer-tag">INTELDAS™ was built around that problem.</div>
+        </section>
+
+        <!-- 2. THE CAPABILITY Section -->
+        <section class="evidence-capability-section">
+            <style>
+                .evidence-capability-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-capability-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .evidence-capability-section .content-body {
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    margin-bottom: 1.5rem;
+                }
+                .evidence-capability-section .distinction-box {
+                    background-color: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 1rem;
+                    border: 1px solid #e2e8f0;
+                }
+                .evidence-capability-section .distinction-title {
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    color: #64748b;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 0.75rem;
+                }
+                .evidence-capability-section .distinction-content {
+                    font-size: 0.875rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+            </style>
+            <h4>2. THE CAPABILITY</h4>
+            <div class="content-body">
+                <p style="font-weight: 600;">From evidence retrieval to evidence development.</p>
+                <p><strong>FEDI™</strong>, the proprietary, patent-pending Forensic Evidence Development Intelligence engine within INTELDAS™, is designed to identify consequential medical evidence that should be investigated, quantified or developed beyond what appears in the original record.</p>
+                <p>INTELDAS then carries that developed intelligence forward into attorney-facing forensic work product.</p>
+            </div>
+            <div class="distinction-box">
+                <div class="distinction-title">The distinction is simple:</div>
+                <div class="distinction-content">
+                    <p style="color: #1e293b;"><strong>Traditional AI:</strong> What does the record contain?</p>
+                    <p style="color: #008da8;"><strong>INTELDAS:</strong> What consequential evidence should be investigated that the record does not adequately contain?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. THE COMMAND CENTER Section -->
+        <section class="evidence-command-section">
+            <style>
+                .evidence-command-section {
+                    width: 100%;
+                    background-color: #071523;
+                    color: #ffffff;
+                    padding: 3.5rem 3rem;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                }
+                .evidence-command-section .header-box {
+                    text-align: center;
+                    max-width: 48rem;
+                    margin: 0 auto 2rem auto;
+                }
+                .evidence-command-section h4 {
+                    font-size: clamp(1.5rem, 3vw, 2.25rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                }
+                .evidence-command-section p {
+                    color: #cbd5e1;
+                    font-size: 1rem;
+                }
+                .evidence-command-section .flow-card {
+                    background-color: #0b1d32;
+                    padding: 1.5rem;
+                    border-radius: 0.75rem;
+                    border: 1px solid #334155;
+                    max-width: 36rem;
+                    margin: 0 auto 2rem auto;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
+                .evidence-command-section .flow-step {
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    color: #94a3b8;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+                .evidence-command-section .flow-arrow {
+                    color: #38bdf8;
+                    font-weight: 900;
+                    font-size: 1.75rem;
+                    line-height: 1;
+                    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+                    padding: 0.25rem 0;
+                }
+                .evidence-command-section .flow-highlight {
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    background-color: rgba(0, 141, 168, 0.2);
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid rgba(0, 141, 168, 0.4);
+                }
+                .evidence-command-section .image-wrapper {
+                    width: 100%;
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    border: 1px solid #334155;
+                    background-color: #000000;
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                }
+                .evidence-command-section .image-wrapper img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: cover;
+                }
+            </style>
+            <div class="header-box">
+                <h4>3. THE COMMAND CENTER</h4>
+                <p>Don't read our claim. Examine the difference.</p>
+            </div>
+            <div class="flow-card">
+                <div class="flow-step">ORIGINAL MEDICAL RECORD</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">INTELDAS™ FORENSIC ANALYSIS</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-highlight">NEWLY DEVELOPED MEDICAL-FORENSIC INTELLIGENCE</div>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://assets.codepen.io/15296175/unnamed.png" alt="Inteldas Actual-Case Command Center with Five Evidence Categories">
+            </div>
+        </section>
+
+        <!-- 4. ONE EVIDENCE ARCHITECTURE Section -->
+        <section class="evidence-architecture-section">
+            <style>
+                .evidence-architecture-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-architecture-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                }
+                .evidence-architecture-section .pills-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+                .evidence-architecture-section .pill-dark {
+                    background-color: #071523;
+                    color: #ffffff;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                }
+                .evidence-architecture-section .pill-arrow {
+                    color: #008da8;
+                    font-weight: 900;
+                    font-size: 1.25rem;
+                    padding: 0 0.25rem;
+                    text-shadow: 0 0 8px rgba(0, 141, 168, 0.3);
+                }
+                .evidence-architecture-section .pills-sub {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    font-size: 0.6875rem;
+                    font-weight: 600;
+                    color: #64748b;
+                    margin-bottom: 2rem;
+                }
+                .evidence-architecture-section .desc-box {
+                    text-align: center;
+                    max-width: 42rem;
+                    margin: 0 auto 2rem auto;
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .evidence-architecture-section .stand-alone-box {
+                    background-color: rgba(0, 141, 168, 0.05);
+                    border: 1px solid rgba(0, 141, 168, 0.3);
+                    padding: 2rem;
+                    border-radius: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                }
+                .evidence-architecture-section .stand-alone-box h5 {
+                    font-weight: bold;
+                    color: #172b4d;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+                .evidence-architecture-section .callout-text {
+                    font-weight: bold;
+                    color: #008da8;
+                    font-size: 0.875rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    padding-top: 0.5rem;
+                }
+            </style>
+            <h4>4. ONE EVIDENCE ARCHITECTURE. FOUR FORENSIC WORK PRODUCTS.</h4>
+            <div class="pills-grid">
+                <span class="pill-dark">AUDIT</span>
+                <span class="pill-arrow">→</span>
+                <span class="pill-dark">DEMAND</span>
+                <span class="pill-arrow">→</span>
+                <span class="pill-dark">IMV</span>
+                <span class="pill-arrow">→</span>
+                <span class="pill-dark">REBUTTAL</span>
+            </div>
+            <div class="pills-sub">
+                <span>DEVELOP IT</span>
+                <span>•</span>
+                <span>PRESENT IT</span>
+                <span>•</span>
+                <span>VALIDATE IT</span>
+                <span>•</span>
+                <span>DEFEND IT</span>
+            </div>
+            <div class="desc-box">
+                <p>The evidence doesn't start over with each report.</p>
+                <p>The underlying intelligence carries forward through the claim.</p>
+                <p style="font-weight: 600; color: #172b4d;">And there is an important distinction:</p>
+            </div>
+            <div class="stand-alone-box">
+                <h5>THE AUDIT CAN STAND ALONE.</h5>
+                <p>Thomson Reuters does not have to replace its demand workflow—or use the INTELDAS Demand at all—to test the evidence-development capability.</p>
+                <p>The INTELDAS Forensic Evidence Audit can operate independently as the medical-evidence layer.</p>
+                <p>Or the same developed intelligence can continue through the complete INTELDAS architecture.</p>
+                <div class="callout-text">Keep the demand. Keep the workflow. ADD THE EVIDENCE.</div>
+            </div>
+        </section>
+
+        <!-- Complete Reports Section -->
+        <section class="evidence-reports-section">
+            <style>
+                .evidence-reports-section {
+                    width: 100%;
+                    background-color: #071523;
+                    color: #ffffff;
+                    padding: 3.5rem 3rem;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                }
+                .evidence-reports-section .header-box {
+                    text-align: center;
+                    max-width: 48rem;
+                    margin: 0 auto 2.5rem auto;
+                }
+                .evidence-reports-section h3 {
+                    font-size: clamp(1.5rem, 3vw, 2.25rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    letter-spacing: -0.025em;
+                }
+                .evidence-reports-section p {
+                    color: #cbd5e1;
+                    margin-top: 0.5rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+                .evidence-reports-section .cards-grid {
+                    display: grid;
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    gap: 1.5rem;
+                }
+                @media(min-width: 640px) {
+                    .evidence-reports-section .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                }
+                @media(min-width: 1024px) {
+                    .evidence-reports-section .cards-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+                }
+                .evidence-reports-section .report-card {
+                    background-color: #0b1d32;
+                    border: 1px solid #334155;
+                    border-radius: 0.75rem;
+                    padding: 1.5rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                .evidence-reports-section .report-card:hover {
+                    border-color: #008da8;
+                    transform: translateY(-4px);
+                }
+                .evidence-reports-section .card-tag {
+                    color: #008da8;
+                    font-size: 0.6875rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 0.25rem;
+                }
+                .evidence-reports-section .card-title {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: #ffffff;
+                    margin-bottom: 0.75rem;
+                }
+                .evidence-reports-section .card-desc {
+                    color: #cbd5e1;
+                    font-size: 0.875rem;
+                    line-height: 1.6;
+                    margin-bottom: 0.75rem;
+                }
+                .evidence-reports-section .card-subdesc {
+                    color: #94a3b8;
+                    font-size: 0.75rem;
+                    line-height: 1.5;
+                }
+                .evidence-reports-section .card-footer {
+                    margin-top: 1.5rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid rgba(51, 65, 85, 0.85);
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    color: #008da8;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            </style>
+            <div class="header-box">
+                <h3>THE COMPLETE REPORTS ARE AVAILABLE BELOW FOR REVIEW.</h3>
+                <p>Click any box below to launch the interactive flipbook viewer preview instantly.</p>
+            </div>
+            <div class="cards-grid">
+                <!-- 01 Audit Card -->
+                <div onclick="openFlipbook('01 Audit Report', 'https://heyzine.com/flip-book/cac240335e.html')" class="report-card">
+                    <div>
+                        <div class="card-tag">Actual INTELDAS™ Work Product</div>
+                        <div class="card-title">AUDIT</div>
+                        <div class="card-desc">Develops the medical-forensic evidence the original record did not adequately contain.</div>
+                        <div class="card-subdesc">Can stand alone as an independent evidence-development report or feed the complete INTELDAS architecture.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span>Preview Flipbook</span>
+                        <span>→</span>
+                    </div>
+                </div>
+
+                <!-- 02 Demand Card -->
+                <div onclick="openFlipbook('02 Demand Letter', 'https://heyzine.com/flip-book/1e35c7f0bd.html')" class="report-card">
+                    <div>
+                        <div class="card-tag">Actual INTELDAS™ Work Product</div>
+                        <div class="card-title">DEMAND</div>
+                        <div class="card-desc">Carries the developed evidence into the attorney's claim presentation.</div>
+                        <div class="card-subdesc">Integrates the medical, functional, impairment and economic evidence into an attorney-facing forensic demand.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span>Preview Flipbook</span>
+                        <span>→</span>
+                    </div>
+                </div>
+
+                <!-- 03 IMV Card -->
+                <div onclick="openFlipbook('03 IMV Report', 'https://heyzine.com/flip-book/d01195f5f6.html')" class="report-card">
+                    <div>
+                        <div class="card-tag">Actual INTELDAS™ Work Product</div>
+                        <div class="card-title" style="font-size: 1.125rem;">IMV — INDEPENDENT MEDICAL VALIDATION</div>
+                        <div class="card-desc">Tests and validates the medical foundation of the claim.</div>
+                        <div class="card-subdesc">Provides an independent medical analysis of the diagnoses, causation, impairment, functional consequences and supporting evidence.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span>Preview Flipbook</span>
+                        <span>→</span>
+                    </div>
+                </div>
+
+                <!-- 04 Rebuttal Card -->
+                <div onclick="openFlipbook('04 Rebuttal Report', 'https://heyzine.com/flip-book/15ad640b62.html')" class="report-card">
+                    <div>
+                        <div class="card-tag">Actual INTELDAS™ Work Product</div>
+                        <div class="card-title">REBUTTAL</div>
+                        <div class="card-desc">Defends the evidence when the claim is challenged.</div>
+                        <div class="card-subdesc">Addresses opposing medical opinions, disputed findings and conflicting interpretations using the developed medical-forensic evidence.</div>
+                    </div>
+                    <div class="card-footer">
+                        <span>Preview Flipbook</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. THE CASE PROOF Section -->
+        <section class="evidence-proof-section">
+            <style>
+                .evidence-proof-section {
+                    width: 100%;
+                    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+                    padding: 4rem 3rem;
+                    border-radius: 2rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+                }
+                .evidence-proof-section .header-wrapper {
+                    text-align: center;
+                    max-width: 48rem;
+                    margin: 0 auto 3rem auto;
+                }
+                .evidence-proof-section h4 {
+                    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 0.75rem;
+                    letter-spacing: -0.02em;
+                }
+                .evidence-proof-section .header-subtitle {
+                    color: #475569;
+                    font-size: 1.125rem;
+                    font-weight: 500;
+                    line-height: 1.6;
+                }
+                .evidence-proof-section .videos-grid {
+                    display: grid;
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    gap: 2rem;
+                    margin-bottom: 3rem;
+                }
+                @media(min-width: 992px) {
+                    .evidence-proof-section .videos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                }
+                .evidence-proof-section .video-card-modern {
+                    background-color: #ffffff;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 1.25rem;
+                    overflow: hidden;
+                    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                .evidence-proof-section .video-card-modern:hover {
+                    border-color: #008da8;
+                    box-shadow: 0 20px 30px -10px rgba(0, 141, 168, 0.15);
+                    transform: translateY(-4px);
+                }
+                .evidence-proof-section .video-thumb-container {
+                    aspect-ratio: 16/9;
+                    width: 100%;
+                    background-color: #0f172a;
+                    position: relative;
+                    cursor: pointer;
+                    overflow: hidden;
+                }
+                .evidence-proof-section .video-thumb-container img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+                .evidence-proof-section .video-card-modern:hover .video-thumb-container img {
+                    transform: scale(1.03);
+                }
+                .evidence-proof-section .play-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(7, 21, 35, 0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background 0.3s ease;
+                }
+                .evidence-proof-section .video-card-modern:hover .play-overlay {
+                    background: rgba(7, 21, 35, 0.15);
+                }
+                .evidence-proof-section .play-button-badge {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: #008da8;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.25rem;
+                    box-shadow: 0 10px 20px rgba(0, 141, 168, 0.4);
+                    transition: transform 0.3s ease, background 0.3s ease;
+                }
+                .evidence-proof-section .video-card-modern:hover .play-button-badge {
+                    transform: scale(1.1);
+                    background: #007088;
+                }
+                .evidence-proof-section .video-content-area {
+                    padding: 2rem;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                .evidence-proof-section .video-title-text {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 0.5rem;
+                }
+                .evidence-proof-section .video-desc-text {
+                    color: #475569;
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                }
+                .evidence-proof-section .video-card-footer {
+                    margin-top: 1.5rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid #f1f5f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .evidence-proof-section .tag-badge {
+                    font-size: 0.6875rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: #008da8;
+                    background: rgba(0, 141, 168, 0.1);
+                    padding: 0.35rem 0.75rem;
+                    border-radius: 9999px;
+                }
+                .evidence-proof-section .watch-btn {
+                    font-size: 0.875rem;
+                    font-weight: bold;
+                    color: #071523;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.35rem;
+                    transition: color 0.2s ease;
+                }
+                .evidence-proof-section .watch-btn:hover {
+                    color: #008da8;
+                }
+                .evidence-proof-section .checklist-card {
+                    background-color: #ffffff;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 1.25rem;
+                    padding: 2.5rem;
+                    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+                    max-width: 48rem;
+                    margin: 0 auto 2.5rem auto;
+                }
+                .evidence-proof-section .checklist-title {
+                    font-size: 1.125rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1.25rem;
+                    text-align: center;
+                }
+                .evidence-proof-section .checklist-items {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .evidence-proof-section .check-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 1rem;
+                    font-size: 1rem;
+                    color: #334155;
+                    font-weight: 500;
+                    line-height: 1.5;
+                }
+                .evidence-proof-section .check-icon {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border-radius: 50%;
+                    background: rgba(0, 141, 168, 0.15);
+                    color: #008da8;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    flex-shrink: 0;
+                    margin-top: 0.125rem;
+                }
+                .evidence-proof-section .grand-quote-box {
+                    background: linear-gradient(135deg, #071523 0%, #0b1d32 100%);
+                    color: #ffffff;
+                    padding: 3rem 2.5rem;
+                    border-radius: 1.25rem;
+                    text-align: center;
+                    box-shadow: 0 20px 30px -10px rgba(7, 21, 35, 0.3);
+                    border: 1px solid rgba(0, 141, 168, 0.3);
+                    max-width: 56rem;
+                    margin: 0 auto;
+                }
+                .evidence-proof-section .grand-quote-text {
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+                    font-style: italic;
+                    line-height: 1.6;
+                    color: #f8fafc;
+                    letter-spacing: -0.01em;
+                }
+            </style>
+
+            <div class="header-wrapper">
+                <h4>5. THE CASE PROOF</h4>
+                <div class="header-subtitle">See what changes when the missing evidence is developed.</div>
+            </div>
+            
+            <div class="videos-grid">
+                <!-- Video Card 1 -->
+                <div class="video-card-modern">
+                    <div onclick="openVideoModal('See the Missing Layer', 'https://fast.wistia.net/embed/iframe/t4vwh3togo')" class="video-thumb-container">
+                        <img src="https://embed-ssl.wistia.com/deliveries/07285ac1c1748658a1312706a5ec424c.jpg?image_crop_resized=900x506&image_play_button_color=%23cf2a2ae0&image_play_button_icon_color=%23ffffff&image_play_button_rounded=true&image_play_button_size=2x" alt="See the Missing Layer">
+                        <div class="play-overlay">
+                            <div class="play-button-badge">▶</div>
+                        </div>
+                    </div>
+                    <div class="video-content-area">
+                        <div>
+                            <div class="video-title-text">See the Missing Layer</div>
+                            <div class="video-desc-text">Why evidence development belongs upstream of legal AI.</div>
+                        </div>
+                        <div class="video-card-footer">
+                            <span class="tag-badge">Case Demonstration</span>
+                            <button onclick="openVideoModal('See the Missing Layer', 'https://fast.wistia.net/embed/iframe/t4vwh3togo')" class="watch-btn">
+                                Watch <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="video-card-modern">
+                    <div onclick="openVideoModal('Take the One-Case Challenge', 'https://fast.wistia.net/embed/iframe/z39o6tuizf')" class="video-thumb-container">
+                        <img src="https://embed-ssl.wistia.com/deliveries/c2422008cc4ce4e7654480587208cc18.jpg?image_crop_resized=900x506&image_play_button_color=%23cf2a2ae0&image_play_button_icon_color=%23ffffff&image_play_button_rounded=true&image_play_button_size=2x" alt="Take the One-Case Challenge">
+                        <div class="play-overlay">
+                            <div class="play-button-badge">▶</div>
+                        </div>
+                    </div>
+                    <div class="video-content-area">
+                        <div>
+                            <div class="video-title-text">Take the One-Case Challenge</div>
+                            <div class="video-desc-text">See the original evidence. See what INTELDAS developed. Then decide.</div>
+                        </div>
+                        <div class="video-card-footer">
+                            <span class="tag-badge">Case Demonstration</span>
+                            <button onclick="openVideoModal('Take the One-Case Challenge', 'https://fast.wistia.net/embed/iframe/z39o6tuizf')" class="watch-btn">
+                                Watch <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist-card">
+                <div class="checklist-title">Witness the forensic transformation:</div>
+                <div class="checklist-items">
+                    <div class="check-item">
+                        <div class="check-icon">✓</div>
+                        <div>See the original medical evidence.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon">✓</div>
+                        <div>See what INTELDAS developed that wasn't adequately there before.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon">✓</div>
+                        <div>See the difference for yourself.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grand-quote-box">
+                <div class="grand-quote-text">
+                    "The question isn't whether AI can do more with the evidence. It's what AI could do with evidence it never had."
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY THIS CAME FROM THE MEDICAL SIDE Section -->
+        <section class="evidence-medical-side-section">
+            <style>
+                .evidence-medical-side-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-medical-side-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .evidence-medical-side-section .content-body {
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .evidence-medical-side-section .lesson-box {
+                    background-color: #f8fafc;
+                    padding: 1.25rem 1.5rem;
+                    border-radius: 0.75rem;
+                    border-left: 4px solid #008da8;
+                    margin: 0.5rem 0;
+                }
+                .evidence-medical-side-section .highlight-final {
+                    font-weight: 600;
+                    color: #172b4d;
+                }
+            </style>
+            <h4>WHY THIS CAME FROM THE MEDICAL SIDE</h4>
+            <div class="content-body">
+                <p>INTELDAS™ did not begin by teaching AI to write a better demand.</p>
+                <p>It began with a medical-evidence problem.</p>
+                <p>For more than four decades, Dr. Frank Liberti's work has operated at the intersection of clinical injury evaluation, medical evidence and personal-injury litigation.</p>
+                <p>More than three decades ago, that work included serving as a medical expert in New Jersey Supreme Court litigation addressing the objective medical evidence necessary to establish qualifying injury under the state's tort threshold—the Verbal Threshold—where the injury claim required proof of significant, consequential and permanent injury.</p>
+                <div class="lesson-box">
+                    <p style="font-weight: bold; color: #172b4d; margin-bottom: 0.25rem;">The lesson was consequential:</p>
+                    <p>The injury alone wasn't enough. The medical evidence had to demonstrate its significance and consequences.</p>
+                </div>
+                <p>That same problem now exists in a different technological environment.</p>
+                <p>Today's legal AI can perform extraordinary work with the information it receives.</p>
+                <p>But AI still cannot reason from consequential medical evidence that was never developed into the case.</p>
+                <p>INTELDAS grew from more than 13 years of engineering medical-legal forensic methodologies and clinical decision intelligence around that problem.</p>
+                <p>The result is not simply another demand generator.</p>
+                <p class="highlight-final">It was built to solve the medical-evidence problem before the demand is written.</p>
+            </div>
+        </section>
+
+        <!-- AN INVENTOR'S PERSONAL NOTE Section -->
+        <section class="evidence-inventor-section">
+            <style>
+                .evidence-inventor-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-inventor-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .evidence-inventor-section .content-body {
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .evidence-inventor-section .grid-paths {
+                    display: grid;
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    gap: 1rem;
+                    margin: 1.5rem 0;
+                }
+                @media(min-width: 768px) {
+                    .evidence-inventor-section .grid-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                }
+                .evidence-inventor-section .path-box {
+                    background-color: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 1rem;
+                    border: 1px solid #e2e8f0;
+                }
+                .evidence-inventor-section .path-box-blue {
+                    background-color: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 1rem;
+                    border: 1px solid rgba(0, 141, 168, 0.3);
+                }
+                .evidence-inventor-section .path-title {
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 0.75rem;
+                }
+                .evidence-inventor-section .path-flow {
+                    font-size: 0.75rem;
+                    font-family: monospace;
+                    font-weight: bold;
+                    line-height: 1.5;
+                }
+                .evidence-inventor-section .path-arrow {
+                    color: #008da8;
+                    font-weight: 900;
+                    font-size: 1rem;
+                }
+                .evidence-inventor-section .quote-line-dark {
+                    font-style: italic;
+                    font-weight: 500;
+                    color: #172b4d;
+                    padding-left: 1rem;
+                    border-left: 2px solid #cbd5e1;
+                }
+                .evidence-inventor-section .quote-line-cyan {
+                    font-style: italic;
+                    font-weight: 500;
+                    color: #008da8;
+                    padding-left: 1rem;
+                    border-left: 2px solid #008da8;
+                }
+                .evidence-inventor-section .signature-block {
+                    margin-top: 2rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid #f1f5f9;
+                    text-align: right;
+                }
+                .evidence-inventor-section .sig-name {
+                    font-weight: bold;
+                    font-size: 0.875rem;
+                    color: #172b4d;
+                }
+                .evidence-inventor-section .sig-title {
+                    font-size: 0.75rem;
+                    color: #64748b;
+                }
+            </style>
+            <h4>AN INVENTOR'S PERSONAL NOTE</h4>
+            <div class="content-body">
+                <p>For years, I kept asking myself a simple question: Why hadn't the legal-AI and demand-formulation companies already solved this?</p>
+                <p>I believe part of the answer is that we approached the same claim from opposite directions.</p>
+                
+                <div class="grid-paths">
+                    <div class="path-box">
+                        <div class="path-title" style="color: #64748b;">Most legal AI naturally begins with the record it receives:</div>
+                        <div class="path-flow" style="color: #334155;">
+                            <div>RECORD</div>
+                            <div class="path-arrow">↓</div>
+                            <div>SEARCH</div>
+                            <div class="path-arrow">↓</div>
+                            <div>ANALYSIS</div>
+                            <div class="path-arrow">↓</div>
+                            <div>LEGAL WORK PRODUCT</div>
+                        </div>
+                    </div>
+                    <div class="path-box-blue">
+                        <div class="path-title" style="color: #008da8;">I came to the problem from the medical side:</div>
+                        <div class="path-flow" style="color: #071523;">
+                            <div>INJURY</div>
+                            <div class="path-arrow">↓</div>
+                            <div>MEDICAL EVIDENCE</div>
+                            <div class="path-arrow">↓</div>
+                            <div>CONSEQUENCE</div>
+                            <div class="path-arrow">↓</div>
+                            <div>CLAIM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>That difference matters.</p>
+                <p>If you begin with the existing record, the natural question is:</p>
+                <p class="quote-line-dark">“What can AI find, analyze and produce from this evidence?”</p>
+                <p>My question was different:</p>
+                <p class="quote-line-cyan">“What consequential medical evidence should exist to properly demonstrate this injury—but was never developed in the first place?”</p>
+                <p>That question ultimately led to INTELDAS™ and FEDI™.</p>
+                <p>Not simply another way to analyze the evidence.</p>
+                <p>A proprietary, patent-pending system designed to develop supportable medical-forensic intelligence that wasn't adequately present in the original record.</p>
+                <p>Perhaps that's why the missing-evidence gap was easier for me to see from the medical side.</p>
+                <p>I wasn't trying to teach AI to write a better demand.</p>
+                <p style="font-weight: 600; color: #172b4d;">I was trying to make sure the demand had better evidence to work with.</p>
+                
+                <div class="signature-block">
+                    <div class="sig-name">— Dr. Frank Liberti</div>
+                    <div class="sig-title">Inventor & Founder, INTELDAS™</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY THIS MATTERS TO THOMSON REUTERS Section -->
+        <section class="evidence-matters-section">
+            <style>
+                .evidence-matters-section {
+                    width: 100%;
+                    background: linear-gradient(135deg, #071523 0%, #0b1d32 100%);
+                    color: #ffffff;
+                    padding: 4rem 3rem;
+                    border-radius: 2rem;
+                    box-shadow: 0 25px 50px -12px rgba(7, 21, 35, 0.35);
+                    border: 1px solid rgba(0, 141, 168, 0.2);
+                }
+                .evidence-matters-section .header-container {
+                    text-align: center;
+                    max-width: 48rem;
+                    margin: 0 auto 3rem auto;
+                }
+                .evidence-matters-section h4 {
+                    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    letter-spacing: -0.02em;
+                    margin-bottom: 0.75rem;
+                }
+                .evidence-matters-section .subtitle {
+                    color: #94a3b8;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+                .evidence-matters-section .workflows-wrapper {
+                    display: grid;
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    gap: 2rem;
+                    margin-bottom: 2.5rem;
+                }
+                @media(min-width: 992px) {
+                    .evidence-matters-section .workflows-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                }
+                .evidence-matters-section .workflow-box {
+                    background-color: #07111c;
+                    border-radius: 1.25rem;
+                    padding: 2rem;
+                    border: 1px solid #1e293b;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+                }
+                .evidence-matters-section .workflow-box.highlighted {
+                    border-color: #008da8;
+                    background: linear-gradient(180deg, #0b1d32 0%, #071523 100%);
+                    box-shadow: 0 15px 30px -5px rgba(0, 141, 168, 0.15);
+                }
+                .evidence-matters-section .workflow-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 1.5rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                }
+                .evidence-matters-section .workflow-tag {
+                    font-size: 0.75rem;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                }
+                .evidence-matters-section .workflow-steps {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .evidence-matters-section .step-item {
+                    background-color: rgba(255, 255, 255, 0.03);
+                    border: 1px solid rgba(255, 255, 255, 0.06);
+                    padding: 0.875rem 1rem;
+                    border-radius: 0.75rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.875rem;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    letter-spacing: 0.02em;
+                }
+                .evidence-matters-section .step-item.fedi-step {
+                    background-color: rgba(0, 141, 168, 0.15);
+                    border-color: rgba(0, 141, 168, 0.4);
+                    color: #38bdf8;
+                }
+                .evidence-matters-section .step-icon {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 0.5rem;
+                    background-color: rgba(255, 255, 255, 0.06);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.75rem;
+                    flex-shrink: 0;
+                    color: #94a3b8;
+                }
+                .evidence-matters-section .step-item.fedi-step .step-icon {
+                    background-color: rgba(0, 141, 168, 0.3);
+                    color: #ffffff;
+                }
+                .evidence-matters-section .step-connector {
+                    text-align: center;
+                    color: #38bdf8;
+                    font-weight: 900;
+                    font-size: 1.25rem;
+                    line-height: 1;
+                    margin: 0.125rem 0;
+                    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+                }
+                .evidence-matters-section .conclusion-box {
+                    background-color: rgba(0, 141, 168, 0.1);
+                    border: 1px solid rgba(0, 141, 168, 0.3);
+                    padding: 1.75rem 2rem;
+                    border-radius: 1rem;
+                    text-align: center;
+                    max-width: 54rem;
+                    margin: 0 auto;
+                }
+                .evidence-matters-section .conclusion-box p {
+                    color: #e2e8f0;
+                    font-size: 1.125rem;
+                    line-height: 1.7;
+                    font-weight: 500;
+                }
+            </style>
+            
+            <div class="header-container">
+                <h4>WHY THIS MATTERS TO THOMSON REUTERS</h4>
+                <div class="subtitle">Comparing the standard platform trajectory versus an evidence-first integration architecture.</div>
+            </div>
+
+            <div class="workflows-wrapper">
+                <!-- TODAY WORKFLOW -->
+                <div class="workflow-box">
+                    <div class="workflow-header">
+                        <span class="workflow-tag" style="color: #94a3b8;">TODAY</span>
+                        <span style="font-size: 0.6875rem; color: #64748b; font-weight: bold; text-transform: uppercase;">Standard Pipeline</span>
+                    </div>
+                    <div class="workflow-steps">
+                        <div class="step-item">
+                            <div class="step-icon">01</div>
+                            <span>MEDICAL RECORD</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">02</div>
+                            <span>SUPIO — ANALYZES CASE INFORMATION</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">03</div>
+                            <span>WESTLAW — VALIDATES AGAINST AUTHORITY</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">04</div>
+                            <span>CoCOUNSEL — REASONS, RESEARCHES AND DRAFTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOW ADD THE EVIDENCE-DEVELOPMENT LAYER -->
+                <div class="workflow-box highlighted">
+                    <div class="workflow-header">
+                        <span class="workflow-tag" style="color: #38bdf8;">NOW ADD THE EVIDENCE-DEVELOPMENT LAYER</span>
+                        <span style="font-size: 0.6875rem; color: #38bdf8; font-weight: bold; text-transform: uppercase; background: rgba(0,141,168,0.2); padding: 0.25rem 0.6rem; border-radius: 9999px;">Upstream Integration</span>
+                    </div>
+                    <div class="workflow-steps">
+                        <div class="step-item">
+                            <div class="step-icon">01</div>
+                            <span>MEDICAL RECORD</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item fedi-step">
+                            <div class="step-icon">✦</div>
+                            <span>FEDI™ — INVESTIGATES AND DEVELOPS MISSING MEDICAL-FORENSIC INTELLIGENCE</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">02</div>
+                            <span>SUPIO</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">03</div>
+                            <span>WESTLAW</span>
+                        </div>
+                        <div class="step-connector">↓</div>
+                        <div class="step-item">
+                            <div class="step-icon">04</div>
+                            <span>CoCOUNSEL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-box">
+                <p>INTELDAS doesn't ask Thomson Reuters to replace the workflow it is building. It asks what that workflow could do with evidence it never had before.</p>
+            </div>
+        </section>
+
+        <!-- THE ECONOMIC QUESTION Section -->
+        <section class="evidence-economic-section">
+            <style>
+                .evidence-economic-section {
+                    width: 100%;
+                    background-color: #ffffff;
+                    padding: 3rem;
+                    border-radius: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                }
+                .evidence-economic-section h4 {
+                    font-size: 1.25rem;
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    color: #172b4d;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .evidence-economic-section .content-body {
+                    color: #334155;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .evidence-economic-section ul {
+                    list-style-type: disc;
+                    list-style-position: inside;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding-left: 1rem;
+                    color: #1e293b;
+                    font-weight: 500;
+                }
+                .evidence-economic-section .question-highlight {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: #008da8;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    padding-top: 0.5rem;
+                }
+            </style>
+            <h4>THE ECONOMIC QUESTION</h4>
+            <div class="content-body">
+                <p>If developing previously unavailable medical evidence can:</p>
+                <ul>
+                    <li>Reduce attorney reconstruction time,</li>
+                    <li>Reduce dependence on separate outside forensic work,</li>
+                    <li>Improve the evidentiary foundation for disputed or undervalued claims,</li>
+                    <li>And make downstream AI more useful,</li>
+                </ul>
+                <p>then the value isn't another document.</p>
+                <p style="font-weight: 600; color: #172b4d;">It's what changes upstream of every document that follows.</p>
+                <p>And now the proposition becomes even easier to test because the Audit can stand alone.</p>
+                <p>Thomson Reuters doesn't have to decide whether it wants another demand solution.</p>
+                <p>It only has to answer one question:</p>
+                <p class="question-highlight">DOES THE EVIDENCE CHANGE?</p>
+            </div>
+        </section>
+
+        <!-- DON'T TAKE OUR WORD FOR IT. TEST IT. Section -->
+        <section class="evidence-test-section">
+            <style>
+                .evidence-test-section {
+                    width: 100%;
+                    background-color: #071523;
+                    color: #ffffff;
+                    padding: 3.5rem 3rem;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                }
+                .evidence-test-section h4 {
+                    font-size: clamp(1.5rem, 3vw, 2.25rem);
+                    font-family: "Playfair Display", Georgia, serif;
+                    font-weight: bold;
+                    margin-bottom: 1.5rem;
+                }
+                .evidence-test-section .content-body {
+                    color: #cbd5e1;
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    margin-bottom: 2rem;
+                }
+                .evidence-test-section .action-box {
+                    background-color: #0b1d32;
+                    padding: 2rem;
+                    border-radius: 1rem;
+                    border: 1px solid #334155;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                @media(min-width: 640px) {
+                    .evidence-test-section .action-box {
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                }
+                .evidence-test-section .contact-info {
+                    font-size: 0.75rem;
+                    color: #cbd5e1;
+                    line-height: 1.6;
+                    text-align: center;
+                }
+                @media(min-width: 640px) {
+                    .evidence-test-section .contact-info { text-align: right; }
+                }
+                .evidence-test-section .contact-name {
+                    font-weight: bold;
+                    color: #ffffff;
+                    font-size: 0.875rem;
+                }
+                .evidence-test-section .final-quote {
+                    text-align: center;
+                    color: #94a3b8;
+                    font-style: italic;
+                    font-size: 0.875rem;
+                    margin-top: 2rem;
+                    padding-top: 1.5rem;
+                    border-top: 1px solid rgba(51, 65, 85, 0.6);
+                }
+            </style>
+            <h4>DON'T TAKE OUR WORD FOR IT. TEST IT.</h4>
+            <div class="content-body">
+                <p>Take one personal-injury case your team already knows.</p>
+                <p>Use the same original medical record.</p>
+                <p>Your existing process does what it does.</p>
+                <p>INTELDAS does what it does.</p>
+                <p style="font-weight: 600; color: #ffffff;">Then put the resulting evidence side by side.</p>
+                <p>If we're wrong, you'll know it.</p>
+                <p style="font-weight: 600; color: #ffffff;">But if we're right, we should have a very different conversation.</p>
+            </div>
+
+            <div class="action-box">
+                <div>
+                    <button onclick="openContactModal()" class="btn-cta text-sm md:text-base py-3 px-6">LET'S DISCUSS A ONE-CASE TEST →</button>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-name">Dr. Frank Liberti</div>
+                    <div>Inventor & Founder, INTELDAS™</div>
+                    <div>727-520-3961</div>
+                    <div>f_liberti@msn.com</div>
+                </div>
+            </div>
+
+            <div class="final-quote">
+                "The question isn't whether AI can do more with the evidence. It's what AI could do with evidence it never had."
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Bottom Footer Section -->
+    <div class="bottom-section max-w-7xl mx-auto">
+        <div class="bottom-left">
+            <div class="bold-title">MISSING RECORDS CAN BE FOUND.</div>
+            <div class="cyan-title">MISSING EVIDENCE <span style="color:#000000; font-weight:700;">HAS TO BE DEVELOPED.</span></div>
+            <div class="sub-text">THAT'S WHERE INTELDAS BEGINS.</div>
+        </div>
+        <div>
+            <button onclick="openContactModal()" class="btn-cta">LET'S DISCUSS A ONE-CASE TEST →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modals (Flipbook, Video, Contact, Share) -->
+<div id="flipbookModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 hidden p-4">
+    <div id="flipbookModalContainer" class="bg-white w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl relative flex flex-col h-[90vh] transition-all duration-300">
+        <div class="flex justify-between items-center p-4 bg-[#071523] text-white">
+            <h3 id="flipbookModalTitle" class="font-bold text-lg font-serif">Report Preview</h3>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="shareCurrentFlipbook()" class="text-xs bg-[#008da8] hover:bg-[#007088] text-white font-bold px-3 py-1.5 rounded transition-colors flex items-center gap-1">
+                    <span>📱 Share QR</span>
+                </button>
+                <button onclick="toggleFlipbookFullscreen()" class="text-xs bg-slate-800 hover:bg-slate-700 text-white font-bold px-3 py-1.5 rounded transition-colors flex items-center gap-1">
+                    <span id="fullscreenBtnText">⛶ Full Screen</span>
+                </button>
+                <button onclick="closeFlipbook()" class="text-white hover:text-[#008da8] text-3xl font-bold px-2 leading-none">&times;</button>
+            </div>
+        </div>
+        <div class="flex-1 bg-slate-100 relative w-full h-full">
+            <iframe id="flipbookModalIframe" src="" allowfullscreen allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="w-full h-full border-0"></iframe>
+        </div>
+        <div class="p-4 bg-slate-900 text-white flex justify-between items-center">
+            <span class="text-xs text-slate-400">Interactive Heyzine Secure Reader</span>
+            <button onclick="closeFlipbook()" class="px-5 py-2 bg-[#008da8] text-white rounded-lg font-bold text-sm hover:bg-[#007088]">Close Viewer</button>
+        </div>
+    </div>
+</div>
+
+<!-- Updated Video Modal with QR Code sharing features included -->
+<div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 hidden p-4">
+    <div class="bg-white w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl relative flex flex-col">
+        <div class="flex justify-between items-center p-4 bg-[#071523] text-white">
+            <h3 id="videoModalTitle" class="font-bold text-lg font-serif">Video Demonstration</h3>
+            <div class="flex items-center gap-2">
+                <button onclick="shareCurrentVideo()" class="text-xs bg-[#008da8] hover:bg-[#007088] text-white font-bold px-3 py-1.5 rounded transition-colors flex items-center gap-1">
+                    <span>📱 Share QR</span>
+                </button>
+                <button onclick="closeVideoModal()" class="text-white hover:text-[#008da8] text-3xl font-bold px-2">&times;</button>
+            </div>
+        </div>
+        <div class="aspect-video w-full bg-black">
+            <iframe id="videoModalIframe" src="" allow="autoplay; fullscreen; microphone; camera" allowtransparency="true" frameborder="0" scrolling="no" class="w-full h-full"></iframe>
+        </div>
+        <div class="p-4 bg-slate-900 text-white flex justify-between items-center">
+            <span class="text-xs text-slate-400">If sound is muted, click the speaker icon on the bottom right of the video player.</span>
+            <button onclick="closeVideoModal()" class="px-5 py-2 bg-[#008da8] text-white rounded-lg font-bold text-sm hover:bg-[#007088]">Close Video</button>
+        </div>
+    </div>
+</div>
+
+<div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 hidden p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative flex flex-col p-6 text-center">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-xl font-serif text-[#071523]">Contact Dr. Frank Liberti</h3>
+            <button onclick="closeContactModal()" class="text-slate-400 hover:text-black text-3xl font-bold">&times;</button>
+        </div>
+        <p class="text-slate-600 text-sm mb-6">Get in touch directly via phone or email for inquiries and consultations.</p>
+        <div class="space-y-4 mb-6">
+            <a href="tel:7275203961" class="flex items-center justify-between p-4 bg-slate-50 border border-slate-200 hover:border-[#008da8] rounded-xl transition-colors group">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📞</span>
+                    <div class="text-left">
+                        <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Phone</div>
+                        <div class="text-base font-bold text-[#172b4d] group-hover:text-[#008da8]">727-520-3961</div>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-[#008da8]">Call Now →</span>
+            </a>
+            <a href="mailto:f_liberti@msn.com" class="flex items-center justify-between p-4 bg-slate-50 border border-slate-200 hover:border-[#008da8] rounded-xl transition-colors group">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">✉️</span>
+                    <div class="text-left">
+                        <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Email</div>
+                        <div class="text-base font-bold text-[#172b4d] group-hover:text-[#008da8]">f_liberti@msn.com</div>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-[#008da8]">Send Email →</span>
+            </a>
+        </div>
+        <button onclick="closeContactModal()" class="w-full py-2.5 bg-[#071523] text-white rounded-lg font-bold text-sm hover:bg-slate-800 transition-colors">Close</button>
+    </div>
+</div>
+
+<div id="shareModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 hidden p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative flex flex-col p-6 text-center">
+        <div class="flex justify-between items-center mb-4">
+            <h3 id="shareModalTitle" class="font-bold text-xl font-serif text-[#071523]">Share Link & QR Code</h3>
+            <button onclick="closeShareModal()" class="text-slate-400 hover:text-black text-3xl font-bold">&times;</button>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Scan this QR code with any mobile device or copy the link/QR image below.</p>
+        <div class="bg-white p-4 border border-slate-200 rounded-xl inline-block mx-auto mb-4 shadow-inner flex justify-center items-center">
+            <div id="qrcodeContainer"></div>
+        </div>
+        <div class="mb-4">
+            <button onclick="copyQrImage()" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-[#071523] border border-slate-300 font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2">
+                <span>📋 Copy QR Code Image</span>
+            </button>
+            <span id="qrToast" class="text-xs text-emerald-600 font-bold block mt-1 opacity-0 transition-opacity">✓ QR image copied to clipboard!</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+            <input type="text" id="shareUrlInput" readonly class="w-full bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-700 outline-none">
+            <button onclick="copyShareUrl()" class="bg-[#008da8] hover:bg-[#007088] text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors whitespace-nowrap">Copy Link</button>
+        </div>
+        <span id="copyToast" class="text-xs text-emerald-600 font-bold h-4 mb-4 opacity-0 transition-opacity">✓ Link copied to clipboard!</span>
+        <button onclick="closeShareModal()" class="w-full py-2.5 bg-[#071523] text-white rounded-lg font-bold text-sm hover:bg-slate-800 transition-colors">Done</button>
+    </div>
+</div>
+
+<script>
+    let currentFlipbookUrl = '';
+    let currentFlipbookTitle = '';
+    let currentVideoUrl = '';
+    let currentVideoTitle = '';
+
+    function openFlipbook(title, url) {
+        currentFlipbookTitle = title;
+        currentFlipbookUrl = url;
+        document.getElementById('flipbookModalTitle').innerText = title;
+        document.getElementById('flipbookModalIframe').src = url;
+        document.getElementById('flipbookModal').classList.remove('hidden');
+    }
+
+    function closeFlipbook() {
+        const container = document.getElementById('flipbookModalContainer');
+        container.classList.remove('fixed', 'inset-0', 'max-w-none', 'h-screen', 'rounded-none');
+        container.classList.add('max-w-5xl', 'h-[90vh]', 'rounded-2xl');
+        document.getElementById('fullscreenBtnText').innerText = '⛶ Full Screen';
+        document.getElementById('flipbookModal').classList.add('hidden');
+        document.getElementById('flipbookModalIframe').src = '';
+    }
+
+    function toggleFlipbookFullscreen() {
+        const container = document.getElementById('flipbookModalContainer');
+        const btnText = document.getElementById('fullscreenBtnText');
+        if (container.classList.contains('max-w-5xl')) {
+            container.classList.remove('max-w-5xl', 'h-[90vh]', 'rounded-2xl');
+            container.classList.add('fixed', 'inset-0', 'max-w-none', 'h-screen', 'rounded-none', 'z-50');
+            btnText.innerText = '✕ Exit Full Screen';
+        } else {
+            container.classList.remove('fixed', 'inset-0', 'max-w-none', 'h-screen', 'rounded-none', 'z-50');
+            container.classList.add('max-w-5xl', 'h-[90vh]', 'rounded-2xl');
+            btnText.innerText = '⛶ Full Screen';
+        }
+    }
+
+    function shareCurrentFlipbook() {
+        if (currentFlipbookUrl) {
+            openShareModalForLink(currentFlipbookUrl, currentFlipbookTitle);
+        }
+    }
+
+    function openVideoModal(title, url) {
+        currentVideoTitle = title;
+        currentVideoUrl = url;
+        document.getElementById('videoModalTitle').innerText = title;
+        document.getElementById('videoModalIframe').src = url + '?autoPlay=true&muted=false&volume=100';
+        document.getElementById('videoModal').classList.remove('hidden');
+    }
+
+    function shareCurrentVideo() {
+        if (currentVideoUrl) {
+            openShareModalForLink(currentVideoUrl, currentVideoTitle);
+        }
+    }
+
+    function closeVideoModal() {
+        document.getElementById('videoModal').classList.add('hidden');
+        document.getElementById('videoModalIframe').src = '';
+    }
+
+    function openContactModal() {
+        document.getElementById('contactModal').classList.remove('hidden');
+    }
+
+    function closeContactModal() {
+        document.getElementById('contactModal').classList.add('hidden');
+    }
+
+    function openShareModalForLink(targetUrl, title) {
+        generateQR(targetUrl);
+        document.getElementById('shareUrlInput').value = targetUrl;
+        document.getElementById('shareModalTitle').innerText = `Share: ${title}`;
+        document.getElementById('shareModal').classList.remove('hidden');
+    }
+
+    function generateQR(text) {
+        const container = document.getElementById('qrcodeContainer');
+        container.innerHTML = "";
+        new QRCode(container, {
+            text: text,
+            width: 180,
+            height: 180,
+            colorDark: "#071523",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    function closeShareModal() {
+        document.getElementById('shareModal').classList.add('hidden');
+        document.getElementById('copyToast').style.opacity = '0';
+        document.getElementById('qrToast').style.opacity = '0';
+    }
+
+    function copyShareUrl() {
+        const input = document.getElementById('shareUrlInput');
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value).then(() => {
+            const toast = document.getElementById('copyToast');
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+        });
+    }
+
+    function copyQrImage() {
+        const qrImg = document.querySelector('#qrcodeContainer img') || document.querySelector('#qrcodeContainer canvas');
+        if (!qrImg) return;
+        let canvas = qrImg;
+        if (qrImg.tagName === 'IMG') {
+            canvas = document.createElement('canvas');
+            canvas.width = qrImg.naturalWidth || 180;
+            canvas.height = qrImg.naturalHeight || 180;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(qrImg, 0, 0);
+        }
+        canvas.toBlob(blob => {
+            try {
+                const item = new ClipboardItem({ 'image/png': blob });
+                navigator.clipboard.write([item]).then(() => {
+                    const toast = document.getElementById('qrToast');
+                    toast.style.opacity = '1';
+                    setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+                });
+            } catch (err) {
+                alert('Copying image directly is not supported in this browser view. You can right-click the QR code image to save/copy it.');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
